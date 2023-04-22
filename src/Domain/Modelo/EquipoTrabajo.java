@@ -55,11 +55,11 @@ public class EquipoTrabajo {
 		this.numeroIntegrantes = numeroIntegrantes;
 	}
 
-	public List<Persona> getIdInvolucrados() {
+	public List<Persona> getInvolucrados() {
 		return involucrados;
 	}
 
-	public void setIdInvolucrados(List<Persona> involucrados) {
+	public void setInvolucrados(List<Persona> involucrados) {
 		this.involucrados = involucrados;
 	}
 

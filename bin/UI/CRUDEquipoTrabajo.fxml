@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="826.0" prefWidth="937.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controller.CRUDEquipoTrabajoController">
+   <children>
+      <Label layoutX="30.0" layoutY="62.0" text="ID del equipo:" />
+      <Label layoutX="30.0" layoutY="94.0" text="Cargo del equipo:" />
+      <Label layoutX="30.0" layoutY="124.0" text="Descripción del equipo:" />
+      <TextField fx:id="lbIdGrupo" layoutX="166.0" layoutY="58.0" prefHeight="25.0" prefWidth="165.0" />
+      <TextField fx:id="lbCargo" layoutX="166.0" layoutY="90.0" prefHeight="25.0" prefWidth="165.0" />
+      <TextArea fx:id="lbDescripcion" layoutX="166.0" layoutY="124.0" prefHeight="90.0" prefWidth="165.0" />
+      <Label layoutX="557.0" layoutY="33.0" text="Tabla equipos de trabajo" />
+      <TableView fx:id="tablaEquipos" layoutX="355.0" layoutY="58.0" onMouseClicked="#cargarIntegrantes" prefHeight="203.0" prefWidth="536.0">
+        <columns>
+          <TableColumn fx:id="colIdEquipo" prefWidth="75.0" text="ID" />
+          <TableColumn fx:id="colCargoEquipo" prefWidth="121.0" text="Cargo" />
+            <TableColumn fx:id="colDescripcion" prefWidth="339.0" text="Descripción" />
+        </columns>
+      </TableView>
+      <Label layoutX="539.0" layoutY="274.0" text="Tabla de integrante del equipos" />
+      <TableView fx:id="tablaIntegrantes" layoutX="356.0" layoutY="299.0" prefHeight="203.0" prefWidth="536.0">
+         <columns>
+            <TableColumn fx:id="colIdIntegrante" prefWidth="75.0" text="ID" />
+            <TableColumn fx:id="colNombreIntegrante" prefWidth="121.0" text="Nombre" />
+            <TableColumn fx:id="colTelefonoIntegrante" prefWidth="140.0" text="Telefono" />
+            <TableColumn fx:id="colEmailIntegrante" prefWidth="199.0" text="Email" />
+         </columns>
+      </TableView>
+      <Label layoutX="547.0" layoutY="539.0" text="Tabla de personal disponible" />
+      <TableView fx:id="tablaPersonalDisponible" layoutX="355.0" layoutY="562.0" onMouseClicked="#cargarPersonalDisponible" prefHeight="203.0" prefWidth="536.0">
+         <columns>
+            <TableColumn fx:id="colIdPersonal" prefWidth="75.0" text="ID" />
+            <TableColumn fx:id="colNombrePersonal" prefWidth="121.0" text="Nombre" />
+            <TableColumn fx:id="colTelefonoPersonal" prefWidth="140.0" text="Telefono" />
+            <TableColumn fx:id="colEmailPersonal" prefWidth="199.0" text="Email" />
+         </columns>
+      </TableView>
+      <Button layoutX="776.0" layoutY="514.0" mnemonicParsing="false" onAction="#eliminarIntegrante" text="Eliminar integrante" />
+      <Button layoutX="776.0" layoutY="780.0" mnemonicParsing="false" onAction="#agregarIntegrante" text="Agregar integrante" />
+      <Button layoutX="28.0" layoutY="236.0" mnemonicParsing="false" onAction="#agregarEquipo" text="Agregar equipo" />
+      <Button layoutX="149.0" layoutY="236.0" mnemonicParsing="false" onAction="#modificarEquipo" text="Modificar" />
+      <Button layoutX="233.0" layoutY="236.0" mnemonicParsing="false" onAction="#eliminarEquipo" text="Eliminar equipo" />
+   </children>
+</AnchorPane>

@@ -44,12 +44,12 @@
             <TableColumn fx:id="colAutoridad" prefWidth="115.0" text="Autoridad" />
         </columns>
       </TableView>
-      <Button layoutX="829.0" layoutY="390.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="167.0" text="Agregar rol" />
-      <Button layoutX="829.0" layoutY="433.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="167.0" text="Modificar rol" />
-      <Button layoutX="829.0" layoutY="476.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="167.0" text="Eliminar rol" />
+      <Button layoutX="829.0" layoutY="390.0" mnemonicParsing="false" onAction="#agregarRol" prefHeight="25.0" prefWidth="167.0" text="Agregar rol" />
+      <Button layoutX="829.0" layoutY="433.0" mnemonicParsing="false" onAction="#modificarRol" prefHeight="25.0" prefWidth="167.0" text="Modificar rol" />
+      <Button layoutX="829.0" layoutY="476.0" mnemonicParsing="false" onAction="#eliminarRol" prefHeight="25.0" prefWidth="167.0" text="Eliminar rol" />
       <Button layoutX="33.0" layoutY="671.0" mnemonicParsing="false" onAction="#agregarPersona" prefHeight="25.0" prefWidth="167.0" text="Agregar persona" />
-      <Button layoutX="226.0" layoutY="671.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="167.0" text="Modificar persona" />
-      <Button layoutX="414.0" layoutY="671.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="167.0" text="Eliminar persona" />
+      <Button layoutX="226.0" layoutY="671.0" mnemonicParsing="false" onAction="#modificarPersona" prefHeight="25.0" prefWidth="167.0" text="Modificar persona" />
+      <Button layoutX="414.0" layoutY="671.0" mnemonicParsing="false" onAction="#eliminarPersona" prefHeight="25.0" prefWidth="167.0" text="Eliminar persona" />
       <TableView fx:id="tablaPersonas" layoutX="327.0" layoutY="28.0" prefHeight="314.0" prefWidth="667.0">
         <columns>
           <TableColumn fx:id="colIdPersona" prefWidth="75.0" text="Id" />

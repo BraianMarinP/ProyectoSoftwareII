@@ -85,10 +85,9 @@ public class CRUDPersonaController implements Initializable {
 	private TextArea txtADescripcion;
 
 	private Domain domain;
-
+	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		domain = new Domain();
 		//Columnas tabla de personas
 		colIdPersona.setCellValueFactory(new PropertyValueFactory<>("id"));
 		colNombrePersona.setCellValueFactory(new PropertyValueFactory<>("nombre"));
@@ -97,10 +96,24 @@ public class CRUDPersonaController implements Initializable {
 		//Columnas tabla de roles
 		colIdRol.setCellValueFactory(new PropertyValueFactory<>("id"));
 		colNombreRol.setCellValueFactory(new PropertyValueFactory<>("nombre"));
-		colDescripcion.setCellValueFactory(new PropertyValueFactory<>("telefono"));
-		colAutoridad.setCellValueFactory(new PropertyValueFactory<>("email"));
+		colDescripcion.setCellValueFactory(new PropertyValueFactory<>("descripcion"));
+		colAutoridad.setCellValueFactory(new PropertyValueFactory<>("nivelAutodidad"));
 	}
-
+	
+	public void recibirBaseDatos(Domain domain) {
+		this.domain = domain;
+		cargarPersonas();
+		cargarRoles();
+	}
+	
+	public void cargarPersonas() {
+		domain.cargarPersonas(this);
+	}
+	
+	public void cargarRoles() {
+		domain.cargarRoles(this);
+	}
+	
 	@FXML
 	public void agregarPersona(ActionEvent event) {
 		domain.agregarPersona(this);
@@ -113,7 +126,7 @@ public class CRUDPersonaController implements Initializable {
 	
 	
 	@FXML
-	public void modiicarPersona(ActionEvent event) {
+	public void modificarPersona(ActionEvent event) {
 		domain.modificarPersona(this);
 	}
 	
@@ -256,6 +269,21 @@ public class CRUDPersonaController implements Initializable {
 
 	public void setTxtADescripcion(TextArea txtADescripcion) {
 		this.txtADescripcion = txtADescripcion;
+	}
+	
+	public void limpiarCampos() {
+		lbDireccion.setText("");
+		lbEdad.setText("");
+		lbEmail.setText("");
+		lbEstadoCivil.setText("");
+		lbFechaNacimiento.setText("");
+		lbGenero.setText("");
+		lbIdPersona.setText("");
+		lbIdRol.setText("");
+		lbNivelAutoridad.setText("");
+		lbNombrePersona.setText("");
+		lbNombreRol.setText("");
+		lbTelefono.setText("");
 	}
 
 }
