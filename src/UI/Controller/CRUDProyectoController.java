@@ -98,7 +98,6 @@ public class CRUDProyectoController implements Initializable{
     
     @FXML
     void mostrarInformacionProyecto(MouseEvent event) {
-    	System.out.println("asdasd");
     	domain.mostrarInformacionProyecto(this);
     }
     

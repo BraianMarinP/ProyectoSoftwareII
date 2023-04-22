@@ -150,23 +150,18 @@ public class Domain {
 	//_________________CRUD Tarea metodos_________________
 	
 	public void agregarTarea(final CRUDTareaController formulario) {
-
-		formulario.actualizarVista();
-	}
-
-	public void desasignarTarea(final CRUDTareaController formulario) {
-
+		//factoryTarea.metodo...
 		formulario.actualizarVista();
 	}
 
 
 	public void eliminarTarea(final CRUDTareaController formulario) {
-
+		//factoryTarea.metodo...
 		formulario.actualizarVista();
 	}
 
 	public void modificarTarea(final CRUDTareaController formulario) {
-
+		//factoryTarea.metodo...
 		formulario.actualizarVista();
 	}
 

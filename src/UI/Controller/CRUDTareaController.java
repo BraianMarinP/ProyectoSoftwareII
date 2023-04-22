@@ -17,69 +17,68 @@ import javafx.scene.input.MouseEvent;
 
 public class CRUDTareaController implements Initializable {
 
+	@FXML
+	private TableColumn<?, ?> colDescripcionProyecto;
 
-    @FXML
-    private TableColumn<?, ?> colDescripcionProyecto;
+	@FXML
+	private TableColumn<?, ?> colDescripcionTarea;
 
-    @FXML
-    private TableColumn<?, ?> colDescripcionTarea;
+	@FXML
+	private TableColumn<?, ?> colFchFin;
 
-    @FXML
-    private TableColumn<?, ?> colFchFin;
+	@FXML
+	private TableColumn<?, ?> colFchInicio;
 
-    @FXML
-    private TableColumn<?, ?> colFchInicio;
+	@FXML
+	private TableColumn<?, ?> colIdCreador;
 
-    @FXML
-    private TableColumn<?, ?> colIdCreador;
+	@FXML
+	private TableColumn<?, ?> colIdEstado;
 
-    @FXML
-    private TableColumn<?, ?> colIdEstado;
+	@FXML
+	private TableColumn<?, ?> colIdProyecto;
 
-    @FXML
-    private TableColumn<?, ?> colIdProyecto;
+	@FXML
+	private TableColumn<?, ?> colIdTarea;
 
-    @FXML
-    private TableColumn<?, ?> colIdTarea;
+	@FXML
+	private TableColumn<?, ?> colNombreProyecto;
 
-    @FXML
-    private TableColumn<?, ?> colNombreProyecto;
+	@FXML
+	private TableColumn<?, ?> colNombreTarea;
 
-    @FXML
-    private TableColumn<?, ?> colNombreTarea;
+	@FXML
+	private TableColumn<?, ?> colPorcentajeTarea;
 
-    @FXML
-    private TableColumn<?, ?> colPorcentajeTarea;
+	@FXML
+	private TextField lbFechaFin;
 
-    @FXML
-    private TextField lbFechaFin;
+	@FXML
+	private TextField lbFechaInicio;
 
-    @FXML
-    private TextField lbFechaInicio;
+	@FXML
+	private TextField lbIdEstado;
 
-    @FXML
-    private TextField lbIdEstado;
+	@FXML
+	private TextField lbIdResponsable;
 
-    @FXML
-    private TextField lbIdResponsable;
+	@FXML
+	private TextField lbIdTarea;
 
-    @FXML
-    private TextField lbIdTarea;
+	@FXML
+	private TextField lbNombre;
 
-    @FXML
-    private TextField lbNombre;
+	@FXML
+	private TextField lbPorcentaje;
 
-    @FXML
-    private TextField lbPorcentaje;
+	@FXML
+	private TableView<EquipoTrabajo> tablaProyectos;
 
-    @FXML
-    private TableView<EquipoTrabajo> tablaProyectos;
+	@FXML
+	private TableView<Tarea> tablaTareas;
 
-    @FXML
-    private TableView<Tarea> tablaTareas;
-
-    @FXML
-    private TextArea txtADescripcion;
+	@FXML
+	private TextArea txtADescripcion;
 
 	private Domain domain;
 
@@ -98,33 +97,28 @@ public class CRUDTareaController implements Initializable {
 		colIdEstado.setCellValueFactory(new PropertyValueFactory<>("estado"));
 		colPorcentajeTarea.setCellValueFactory(new PropertyValueFactory<>("porcentajeAvance"));
 		colDescripcionTarea.setCellValueFactory(new PropertyValueFactory<>("descripcion"));
-		//Columnas tabla de proyectos
+		// Columnas tabla de proyectos
 		colIdProyecto.setCellValueFactory(new PropertyValueFactory<>("id"));
 		colNombreProyecto.setCellValueFactory(new PropertyValueFactory<>("nombre"));
 		colDescripcionProyecto.setCellValueFactory(new PropertyValueFactory<>("descripcion"));
-		
+
 	}
 
 	@FXML
 	void agregarTarea(MouseEvent event) {
-
-	}
-
-	@FXML
-	void desasignarTarea(MouseEvent event) {
-
+		domain.agregarTarea(this);
 	}
 
 	@FXML
 	void eliminarTarea(MouseEvent event) {
-
+		domain.eliminarTarea(this);
 	}
 
 	@FXML
 	void modificarTarea(MouseEvent event) {
-
+		domain.modificarTarea(this);
 	}
-	
+
 	public void actualizarVista() {
 		tablaProyectos.refresh();
 		tablaTareas.refresh();
