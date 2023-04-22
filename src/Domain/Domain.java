@@ -4,21 +4,21 @@ import Domain.Fabrica.*;
 import UI.Controller.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.input.MouseEvent;
 
 public class Domain {
 
 	@SuppressWarnings("unused")
-	private FactoryContrato factoryContrato;
-	private FactoryEquipoTrabajo factoryEquipoTrabajo;
+	private final FactoryContrato factoryContrato;
+	private final FactoryEquipoTrabajo factoryEquipoTrabajo;
 	@SuppressWarnings("unused")
-	private FactoryInforme factoryInforme;
+	private final FactoryInforme factoryInforme;
 	@SuppressWarnings("unused")
-	private FactoryPago factoryPago;
-	private FactoryPersona factoryPersona;
+	private final FactoryPago factoryPago;
+	private final FactoryPersona factoryPersona;
+	private final FactoryProyecto factoryProyecto;
 	@SuppressWarnings("unused")
-	private FactoryProyecto factoryProyecto;
-	@SuppressWarnings("unused")
-	private FactoryTarea factoryTarea;
+	private final FactoryTarea factoryTarea;
 	
 	public Domain() {
 		factoryContrato = new FactoryContrato();
@@ -30,7 +30,7 @@ public class Domain {
 		factoryTarea = new FactoryTarea();
 	}
 	
-	//CRUD Persona métodos
+	//_________________CRUD Persona métodos_________________
 	
 	public void cargarPersonas(final CRUDPersonaController formulario) {
 		factoryPersona.cargarPersonas(formulario);
@@ -72,7 +72,7 @@ public class Domain {
 		formulario.actualizarVista();
 	}
 	
-	//CRUD Equipo Trabajo metodos
+	//_________________CRUD Equipo Trabajo metodos_________________
 	
 	
 	public void agregarEquipo(final CRUDEquipoTrabajoController formulario) {
@@ -116,6 +116,57 @@ public class Domain {
 	
 	public void cargarIntegrantes(final CRUDEquipoTrabajoController formulario) {
 		factoryEquipoTrabajo.cargarIntegrantes(formulario);
+		formulario.actualizarVista();
+	}
+	
+	//_________________CRUD Proyecto metodos_________________
+	
+	
+	public void agregarProyecto(final CRUDProyectoController formulario) {
+		factoryProyecto.agregarProyecto(formulario, factoryEquipoTrabajo.getListaEquipoTrabajo(), factoryPersona.getListaPersonas());
+		formulario.actualizarVista();
+    }
+    
+	public void eliminarProyecto(final CRUDProyectoController formulario) {
+		factoryProyecto.eliminarProyecto(formulario);
+		formulario.actualizarVista();
+    }
+    
+	public void modificarProyecto(final CRUDProyectoController formulario) {
+		factoryProyecto.modificarProyecto(formulario, factoryEquipoTrabajo.getListaEquipoTrabajo(), factoryPersona.getListaPersonas());
+		formulario.actualizarVista();
+    }
+	
+	public void cargarProyectos(final CRUDProyectoController formulario) {
+		factoryProyecto.cargarProyectos(formulario);
+		formulario.actualizarVista();
+	}
+	
+	public void mostrarInformacionProyecto(final CRUDProyectoController formulario) {
+		factoryProyecto.mostrarInformacionProyecto(formulario, factoryEquipoTrabajo.getListaEquipoTrabajo(), factoryPersona.getListaPersonas());
+		formulario.actualizarVista();
+	}
+	
+	//_________________CRUD Tarea metodos_________________
+	
+	public void agregarTarea(final CRUDTareaController formulario) {
+
+		formulario.actualizarVista();
+	}
+
+	public void desasignarTarea(final CRUDTareaController formulario) {
+
+		formulario.actualizarVista();
+	}
+
+
+	public void eliminarTarea(final CRUDTareaController formulario) {
+
+		formulario.actualizarVista();
+	}
+
+	public void modificarTarea(final CRUDTareaController formulario) {
+
 		formulario.actualizarVista();
 	}
 

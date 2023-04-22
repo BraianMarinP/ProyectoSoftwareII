@@ -46,4 +46,24 @@ public class MenuController implements Initializable {
 		controlador.recibirBaseDatos(domain);
 	}
 
+    @FXML
+    void cargarCRUDProyectos(ActionEvent event) throws IOException {
+    	FXMLLoader loader = cargarVentana("/UI/CRUDProyecto.fxml");
+		CRUDProyectoController controlador = loader.getController();
+		controlador.recibirBaseDatos(domain);
+    }
+
+    @FXML
+    void cargarCRUDTareas(ActionEvent event) throws IOException {
+    	FXMLLoader loader = cargarVentana("/UI/CRUDTarea.fxml");
+		CRUDTareaController controlador = loader.getController();
+		controlador.recibirBaseDatos(domain);
+    }
+    
+    @FXML
+    void cargarSeguimiento(ActionEvent event) throws IOException {
+    	FXMLLoader loader = cargarVentana("/UI/Seguimiento.fxml");
+		SeguimientoController controlador = loader.getController();
+		controlador.recibirBaseDatos(domain);
+    }
 }

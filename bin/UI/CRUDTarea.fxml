@@ -1,8 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1">
-	<!-- TODO Add Nodes -->
-</AnchorPane>
 
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="523.0" prefWidth="1186.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controller.CRUDTareaController">
+   <children>
+      <Label layoutX="34.0" layoutY="82.0" text="ID de tarea:" />
+      <TextField fx:id="lbIdTarea" layoutX="190.0" layoutY="78.0" />
+      <Label layoutX="34.0" layoutY="118.0" text="Nombre:" />
+      <TextField fx:id="lbNombre" layoutX="190.0" layoutY="114.0" />
+      <Label layoutX="34.0" layoutY="156.0" text="Fecha inicio:" />
+      <TextField fx:id="lbFechaInicio" layoutX="190.0" layoutY="152.0" />
+      <Label layoutX="34.0" layoutY="194.0" text="Fecha de fin:" />
+      <TextField fx:id="lbFechaFin" layoutX="190.0" layoutY="190.0" />
+      <Label layoutX="34.0" layoutY="231.0" text="Porcentaje de avance:" />
+      <TextField fx:id="lbPorcentaje" layoutX="190.0" layoutY="227.0" />
+      <Label layoutX="32.0" layoutY="332.0" text="Descripción:" />
+      <TextArea fx:id="txtADescripcion" layoutX="30.0" layoutY="353.0" prefHeight="84.0" prefWidth="308.0" />
+      <Label layoutX="33.0" layoutY="305.0" text="ID del responsable (creador):" />
+      <TextField fx:id="lbIdResponsable" layoutX="191.0" layoutY="301.0" />
+      <Button layoutX="30.0" layoutY="457.0" mnemonicParsing="false" onMouseClicked="#agregarTarea" text="Agregar tarea" />
+      <Button layoutX="138.0" layoutY="457.0" mnemonicParsing="false" onMouseClicked="#modificarTarea" text="Modificar tarea" />
+      <Button layoutX="249.0" layoutY="457.0" mnemonicParsing="false" onMouseClicked="#eliminarTarea" text="Eliminar tarea" />
+      <TableView fx:id="tablaTareas" layoutX="372.0" layoutY="275.0" prefHeight="208.0" prefWidth="778.0">
+        <columns>
+          <TableColumn fx:id="colIdTarea" prefWidth="75.0" text="ID" />
+          <TableColumn fx:id="colNombreTarea" prefWidth="75.0" text="Nombre" />
+            <TableColumn fx:id="colFchInicio" prefWidth="75.0" text="Fch. Inicio" />
+            <TableColumn fx:id="colFchFin" prefWidth="75.0" text="Fch. Fin" />
+            <TableColumn fx:id="colPorcentajeTarea" prefWidth="75.0" text="\% Avance" />
+            <TableColumn fx:id="colIdEstado" prefWidth="76.0" text="Estado" />
+            <TableColumn fx:id="colIdCreador" prefWidth="119.0" text="ID Creador" />
+            <TableColumn fx:id="colDescripcionTarea" prefWidth="207.0" text="Descripción" />
+        </columns>
+      </TableView>
+      <TableView fx:id="tablaProyectos" layoutX="372.0" layoutY="78.0" prefHeight="155.0" prefWidth="778.0">
+        <columns>
+          <TableColumn fx:id="colIdProyecto" prefWidth="75.0" text="ID" />
+          <TableColumn fx:id="colNombreProyecto" prefWidth="190.0" text="Nombre" />
+            <TableColumn fx:id="colDescripcionProyecto" prefWidth="512.0" text="Descripcion" />
+        </columns>
+      </TableView>
+      <Label layoutX="694.0" layoutY="250.0" text="Tabla tareas del proyecto" />
+      <Label layoutX="711.0" layoutY="44.0" text="Tabla de proyectos" />
+      <Label layoutX="32.0" layoutY="268.0" text="Estado:" />
+      <TextField fx:id="lbIdEstado" layoutX="190.0" layoutY="264.0" />
+   </children>
+</AnchorPane>
