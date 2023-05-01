@@ -1,14 +1,20 @@
 package Domain.Modelo;
 
-public class Tarea {
-	String id;
-	String nombre;
-	String fechaInicio;
-	String fechaFin;
-	String estado;
-	String porcentajeAvance;
-	String descripcion;
-	Persona responsable;
+import java.io.Serializable;
+
+public class Tarea implements Serializable  {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private String id;
+	private String nombre;
+	private String fechaInicio;
+	private String fechaFin;
+	private String estado;
+	private String porcentajeAvance;
+	private String descripcion;
+	private Persona responsable;
 
 	public Tarea() {
 	}

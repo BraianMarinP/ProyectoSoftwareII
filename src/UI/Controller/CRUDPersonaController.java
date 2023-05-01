@@ -1,11 +1,13 @@
 package UI.Controller;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import Domain.Domain;
 import Domain.Modelo.Persona;
 import Domain.Modelo.Rol;
+import application.Persistencia;
 import javafx.collections.FXCollections;
 import javafx.event.*;
 import javafx.fxml.FXML;
@@ -117,37 +119,51 @@ public class CRUDPersonaController implements Initializable {
 	@FXML
 	public void agregarPersona(ActionEvent event) {
 		domain.agregarPersona(this);
+		salvarDomain();
 	}
 	
 	@FXML
 	public void eliminarPersona(ActionEvent event) {
 		domain.eliminarPersona(this);
+		salvarDomain();
 	}
 	
 	
 	@FXML
 	public void modificarPersona(ActionEvent event) {
 		domain.modificarPersona(this);
+		salvarDomain();
 	}
 	
 	@FXML
 	public void agregarRol(ActionEvent event) {
 		domain.agregarRol(this);
+		salvarDomain();
 	}
 
 	@FXML
 	public void modificarRol(ActionEvent event) {
 		domain.modificarRol(this);
+		salvarDomain();
 	}
 
 	@FXML
 	public void eliminarRol(ActionEvent event) {
 		domain.eliminarRol(this);
+		salvarDomain();
 	}
 	
 	public void actualizarVista() {
 		tablaPersonas.refresh();
 		tablaRoles.refresh();
+	}
+	
+	private void salvarDomain() {
+		try {
+			Persistencia.serializarObjectoXML("src/datos/datos.xml", domain);
+		} catch (IOException e) {
+			System.out.println("Error al guardar los datos en el archivo XML");
+		}
 	}
 	
 

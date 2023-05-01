@@ -1,14 +1,19 @@
 package Domain.Modelo;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class EquipoTrabajo {
+public class EquipoTrabajo implements Serializable {
 
-	String id;
-	String cargo;
-	String descripcion;
-	int numeroIntegrantes;
-	List<Persona> involucrados;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private String id;
+	private String cargo;
+	private String descripcion;
+	private int numeroIntegrantes;
+	private List<Persona> involucrados;
 
 	public EquipoTrabajo() {
 	}

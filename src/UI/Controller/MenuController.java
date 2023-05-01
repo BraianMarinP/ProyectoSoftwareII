@@ -5,6 +5,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import Domain.Domain;
+import Domain.Fabrica.FactoryPersona;
+import application.Persistencia;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,11 +16,18 @@ import javafx.stage.Stage;
 
 public class MenuController implements Initializable {
 
-	private final Domain domain = new Domain();
+	private Domain domain = new Domain();
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		// TODO Auto-generated method stub
+		try {
+			//domain = new Domain();
+			//domain.setFactoryPersona(new FactoryPersona());
+			//Persistencia.serializarObjectoXML("src/datos/datos.xml", domain);
+			domain = (Domain) Persistencia.deserializadorObjetoXML("src/datos/datos.xml");
+		} catch (IOException e) {
+			System.out.println("Error al cargar el domain del archivo XML");
+		}
 	}
 
 	public FXMLLoader cargarVentana(String rutaFXML) throws IOException {

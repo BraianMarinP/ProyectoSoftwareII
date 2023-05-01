@@ -1,6 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controller.SeguimientoController" />
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="568.0" prefWidth="786.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controller.SeguimientoController">
+   <children>
+      <Label layoutX="322.0" layoutY="14.0" text="SEGUIMIENTO">
+         <font>
+            <Font name="Calibri Bold" size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="32.0" layoutY="55.0" text="Buscar por ID:" />
+      <TextField fx:id="lbIdTarea" layoutX="174.0" layoutY="50.0" prefHeight="25.0" prefWidth="132.0" />
+      <Button layoutX="324.0" layoutY="50.0" mnemonicParsing="false" onMouseClicked="#buscarPorId" text="Buscar" />
+      <Label layoutX="32.0" layoutY="88.0" text="Listar por ID proyectos:" />
+      <TextField fx:id="lbIdProyecto" layoutX="174.0" layoutY="83.0" prefHeight="25.0" prefWidth="132.0" />
+      <Button layoutX="324.0" layoutY="83.0" mnemonicParsing="false" onMouseClicked="#buscarPorProyectos" text="Buscar" />
+      <Label layoutX="32.0" layoutY="124.0" text="Listar por ID responsable:" />
+      <TextField fx:id="lbIdResponsable" layoutX="174.0" layoutY="119.0" prefHeight="25.0" prefWidth="132.0" />
+      <Button layoutX="324.0" layoutY="119.0" mnemonicParsing="false" onMouseClicked="#buscarPorResponsable" text="Buscar" />
+      <TableView fx:id="tablaTareas" layoutX="32.0" layoutY="164.0" prefHeight="379.0" prefWidth="730.0">
+        <columns>
+          <TableColumn fx:id="colId" prefWidth="72.0" text="ID" />
+          <TableColumn fx:id="colNombre" prefWidth="151.0" text="Nombre" />
+            <TableColumn fx:id="colFchInicio" prefWidth="110.0" text="Fch. Inicio" />
+            <TableColumn fx:id="colFchFin" prefWidth="157.0" text="Fch. Fin" />
+            <TableColumn fx:id="colAvance" prefWidth="119.0" text="\% Avance" />
+            <TableColumn fx:id="colEstado" prefWidth="119.0" text="Estado" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

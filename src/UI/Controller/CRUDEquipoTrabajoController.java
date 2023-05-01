@@ -1,11 +1,13 @@
 package UI.Controller;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import Domain.Domain;
 import Domain.Modelo.EquipoTrabajo;
 import Domain.Modelo.Persona;
+import application.Persistencia;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -105,6 +107,7 @@ public class CRUDEquipoTrabajoController implements Initializable {
 	@FXML
 	void agregarEquipo(ActionEvent event) {
 		domain.agregarEquipo(this);
+		salvarDomain();
 	}
 
 	@FXML
@@ -112,17 +115,20 @@ public class CRUDEquipoTrabajoController implements Initializable {
 		domain.agregarIntegrante(this);
 		domain.cargarIntegrantes(this);
 		domain.cargarPersonalDisponible(this);
+		salvarDomain();
 	}
 
 	@FXML
 	void modificarEquipo(ActionEvent event) {
 		domain.modificarEquipo(this);
+		salvarDomain();
 	}
 
 	@FXML
 	void eliminarEquipo(ActionEvent event) {
 		domain.eliminarEquipo(this);
 		domain.cargarPersonalDisponible(this);
+		salvarDomain();
 	}
 
 	@FXML
@@ -130,12 +136,21 @@ public class CRUDEquipoTrabajoController implements Initializable {
 		domain.eliminarIntegrante(this);
 		domain.cargarIntegrantes(this);
 		domain.cargarPersonalDisponible(this);
+		salvarDomain();
 	}
 
 	public void actualizarVista() {
 		tablaEquipos.refresh();
 		tablaIntegrantes.refresh();
 		tablaPersonalDisponible.refresh();
+	}
+	
+	private void salvarDomain() {
+		try {
+			Persistencia.serializarObjectoXML("src/datos/datos.xml", domain);
+		} catch (IOException e) {
+			System.out.println("Error al guardar los datos en el archivo XML");
+		}
 	}
 
 	public TextField getLbCargo() {

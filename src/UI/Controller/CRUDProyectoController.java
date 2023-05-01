@@ -1,10 +1,12 @@
 package UI.Controller;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import Domain.Domain;
 import Domain.Modelo.Proyecto;
+import application.Persistencia;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
@@ -65,7 +67,7 @@ public class CRUDProyectoController implements Initializable{
     
     public void recibirBaseDatos(Domain domain) {
 		this.domain = domain;
-		//domain.cargarProyectos(this);
+		domain.cargarProyectos(this);
 	}
     
     @Override
@@ -84,16 +86,19 @@ public class CRUDProyectoController implements Initializable{
     @FXML
     void agregarProyecto(MouseEvent event) {
     	domain.agregarProyecto(this);
+    	salvarDomain();
     }
 
     @FXML
     void eliminarProyecto(MouseEvent event) {
     	domain.eliminarProyecto(this);
+    	salvarDomain();
     }
 
     @FXML
     void modificarProyecto(MouseEvent event) {
     	domain.modificarProyecto(this);
+    	salvarDomain();
     }
     
     @FXML
@@ -104,6 +109,14 @@ public class CRUDProyectoController implements Initializable{
     public void actualizarVista() {
     	tablaProyectos.refresh();
     }
+    
+    private void salvarDomain() {
+		try {
+			Persistencia.serializarObjectoXML("src/datos/datos.xml", domain);
+		} catch (IOException e) {
+			System.out.println("Error al guardar los datos en el archivo XML");
+		}
+	}
 
 	public TableColumn<?, ?> getColDescripcion() {
 		return colDescripcion;

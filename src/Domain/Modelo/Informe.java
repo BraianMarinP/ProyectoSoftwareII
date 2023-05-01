@@ -1,13 +1,19 @@
 package Domain.Modelo;
 
-public class Informe {
+import java.io.Serializable;
 
-	String id;
-	String fechaCreacion;
-	String descripcion;
-	String contenido;
-	String titulo;
-	Persona autor;
+public class Informe implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private String id;
+	private String fechaCreacion;
+	private String descripcion;
+	private String contenido;
+	private String titulo;
+	private Persona autor;
 
 	public Informe() {
 	}

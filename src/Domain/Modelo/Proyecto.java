@@ -1,18 +1,23 @@
 package Domain.Modelo;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Proyecto {
-	String id;
-	String nombre;
-	String fechaInicio;
-	String fechaLimite;
-	String porcentajeAvance;
-	String descripcion;
-	List<Tarea> tareas;
-	Persona supervisor;
-	EquipoTrabajo equipoAsignado;
-	Contrato contrato;
+public class Proyecto implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private String id;
+	private String nombre;
+	private String fechaInicio;
+	private String fechaLimite;
+	private String porcentajeAvance;
+	private String descripcion;
+	private List<Tarea> tareas;
+	private Persona supervisor;
+	private EquipoTrabajo equipoAsignado;
+	private Contrato contrato;
 
 	public Proyecto() {
 	}

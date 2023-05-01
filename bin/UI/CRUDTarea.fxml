@@ -8,7 +8,6 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="523.0" prefWidth="1186.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controller.CRUDTareaController">
    <children>
       <Label layoutX="34.0" layoutY="82.0" text="ID de tarea:" />
@@ -35,12 +34,11 @@
             <TableColumn fx:id="colFchInicio" prefWidth="75.0" text="Fch. Inicio" />
             <TableColumn fx:id="colFchFin" prefWidth="75.0" text="Fch. Fin" />
             <TableColumn fx:id="colPorcentajeTarea" prefWidth="75.0" text="\% Avance" />
-            <TableColumn fx:id="colIdEstado" prefWidth="76.0" text="Estado" />
-            <TableColumn fx:id="colIdCreador" prefWidth="119.0" text="ID Creador" />
-            <TableColumn fx:id="colDescripcionTarea" prefWidth="207.0" text="Descripción" />
+            <TableColumn fx:id="colEstado" prefWidth="76.0" text="Estado" />
+            <TableColumn fx:id="colDescripcionTarea" prefWidth="326.0" text="Descripción" />
         </columns>
       </TableView>
-      <TableView fx:id="tablaProyectos" layoutX="372.0" layoutY="78.0" prefHeight="155.0" prefWidth="778.0">
+      <TableView fx:id="tablaProyectos" layoutX="372.0" layoutY="78.0" onMouseClicked="#cargarTareasPoryecto" prefHeight="155.0" prefWidth="778.0">
         <columns>
           <TableColumn fx:id="colIdProyecto" prefWidth="75.0" text="ID" />
           <TableColumn fx:id="colNombreProyecto" prefWidth="190.0" text="Nombre" />
@@ -50,6 +48,6 @@
       <Label layoutX="694.0" layoutY="250.0" text="Tabla tareas del proyecto" />
       <Label layoutX="711.0" layoutY="44.0" text="Tabla de proyectos" />
       <Label layoutX="32.0" layoutY="268.0" text="Estado:" />
-      <TextField fx:id="lbIdEstado" layoutX="190.0" layoutY="264.0" />
+      <TextField fx:id="lbEstado" layoutX="190.0" layoutY="264.0" />
    </children>
 </AnchorPane>

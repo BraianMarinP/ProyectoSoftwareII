@@ -1,5 +1,6 @@
 package Domain.Fabrica;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,9 +11,16 @@ import Domain.Modelo.Tarea;
 import UI.Controller.CRUDProyectoController;
 import javafx.collections.FXCollections;
 
-public class FactoryProyecto {
+public class FactoryProyecto implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	List<Proyecto> listaProyectos = new ArrayList<>();
+	
+	public FactoryProyecto() {
+	}
 
 	public void agregarProyecto(final CRUDProyectoController formulario, List<EquipoTrabajo> equipos,
 			List<Persona> personal) {
@@ -43,11 +51,11 @@ public class FactoryProyecto {
 			for (Persona supervisor : personal) {
 				if (supervisor.getId().equalsIgnoreCase(formulario.getLbIdSupervisor().getText())) {
 					nuevoProyecto.setSupervisor(supervisor);
+					listaProyectos.add(nuevoProyecto);
+					formulario.getTablaProyectos().setItems(FXCollections.observableArrayList(listaProyectos));
 					break;
 				}
 			}
-			listaProyectos.add(nuevoProyecto);
-			formulario.getTablaProyectos().setItems(FXCollections.observableArrayList(listaProyectos));
 		}
 	}
 
@@ -136,5 +144,17 @@ public class FactoryProyecto {
 				}
 			}
 		}
+	}
+
+	public List<Proyecto> getListaProyectos() {
+		return listaProyectos;
+	}
+
+	public void setListaProyectos(List<Proyecto> listaProyectos) {
+		this.listaProyectos = listaProyectos;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 }

@@ -1,11 +1,17 @@
 package Domain.Modelo;
 
-public class Rol {
+import java.io.Serializable;
 
-	String id;
-	String nombre;
-	String descripcion;
-	String nivelAutodidad;
+public class Rol implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private String id;
+	private String nombre;
+	private String descripcion;
+	private String nivelAutodidad;
 
 	public Rol() {
 	}

@@ -1,5 +1,6 @@
 package Domain.Fabrica;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,10 +11,18 @@ import UI.Controller.CRUDEquipoTrabajoController;
 import UI.Controller.CRUDPersonaController;
 import javafx.collections.FXCollections;
 
-public class FactoryPersona {
+public class FactoryPersona implements Serializable {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	List<Persona> listaPersonas = new ArrayList<>();
 	List<Rol> listaRoles = new ArrayList<>();
 	
+	public FactoryPersona() {
+	}
+
 	public void cargarPersonas(final CRUDPersonaController formulario) {
 		formulario.getTablaPersonas().setItems(FXCollections.observableList(listaPersonas));
 	}
@@ -67,12 +76,25 @@ public class FactoryPersona {
 		}
 	}
 
-	public void eliminarPersona(final CRUDPersonaController formulario) {
+	public void eliminarPersona(final CRUDPersonaController formulario, List<EquipoTrabajo> equipos) {
 		Persona personaEliminar = formulario.getTablaPersonas().getSelectionModel().getSelectedItem();
+		boolean integranteEliminado = false;
 		if(personaEliminar != null){
 			for (Persona persona : listaPersonas) {
 				if (persona.getId().equalsIgnoreCase(personaEliminar.getId())) {
 					listaPersonas.remove(persona);
+					for (EquipoTrabajo equipo : equipos) {
+						for (Persona integrante : equipo.getInvolucrados()) {
+							if(integrante.getId().equalsIgnoreCase(personaEliminar.getId())) {
+								equipo.getInvolucrados().remove(integrante);
+								integranteEliminado = true;
+								break;
+							}
+						}
+						if(integranteEliminado) {
+							break;
+						}
+					}
 					formulario.getTablaPersonas().setItems(FXCollections.observableList(listaPersonas));
 					break;
 				}
@@ -144,6 +166,22 @@ public class FactoryPersona {
 
 	public List<Persona> getListaPersonas() {
 		return listaPersonas;
+	}
+
+	public List<Rol> getListaRoles() {
+		return listaRoles;
+	}
+
+	public void setListaRoles(List<Rol> listaRoles) {
+		this.listaRoles = listaRoles;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	public void setListaPersonas(List<Persona> listaPersonas) {
+		this.listaPersonas = listaPersonas;
 	}
 	
 }

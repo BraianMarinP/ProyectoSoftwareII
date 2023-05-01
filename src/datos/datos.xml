@@ -1,0 +1,488 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="17.0.4" class="java.beans.XMLDecoder">
+ <object class="Domain.Domain" id="Domain0">
+  <void id="FactoryEquipoTrabajo0" property="factoryEquipoTrabajo">
+   <void property="listaEquipoTrabajo">
+    <void method="add">
+     <object class="Domain.Modelo.EquipoTrabajo" id="EquipoTrabajo0">
+      <void property="cargo">
+       <string>Compras</string>
+      </void>
+      <void property="descripcion">
+       <string>Obtienen la materia prima</string>
+      </void>
+      <void property="id">
+       <string>ET1</string>
+      </void>
+      <void property="involucrados">
+       <object class="java.util.ArrayList">
+        <void method="add">
+         <object class="Domain.Modelo.Persona" id="Persona0">
+          <void property="direccion">
+           <string>Uniquindio</string>
+          </void>
+          <void property="edad">
+           <string>20</string>
+          </void>
+          <void property="email">
+           <string>Braian@gmail.com</string>
+          </void>
+          <void property="estadoCivil">
+           <string>Casado</string>
+          </void>
+          <void property="fechaNacimiento">
+           <string>2002</string>
+          </void>
+          <void property="genero">
+           <string>M</string>
+          </void>
+          <void property="id">
+           <string>P1</string>
+          </void>
+          <void property="nombre">
+           <string>Braian Marin P</string>
+          </void>
+          <void property="telefono">
+           <string>544668</string>
+          </void>
+         </object>
+        </void>
+        <void method="add">
+         <object class="Domain.Modelo.Persona" id="Persona1">
+          <void property="direccion">
+           <string>Uniquindio</string>
+          </void>
+          <void property="edad">
+           <string>20</string>
+          </void>
+          <void property="email">
+           <string>Pablo@gmail.com</string>
+          </void>
+          <void property="estadoCivil">
+           <string>Casado</string>
+          </void>
+          <void property="fechaNacimiento">
+           <string>2002</string>
+          </void>
+          <void property="genero">
+           <string>M</string>
+          </void>
+          <void property="id">
+           <string>P3</string>
+          </void>
+          <void property="nombre">
+           <string>Pablo</string>
+          </void>
+          <void property="telefono">
+           <string>415215</string>
+          </void>
+         </object>
+        </void>
+       </object>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="Domain.Modelo.EquipoTrabajo" id="EquipoTrabajo1">
+      <void property="cargo">
+       <string>Contadores</string>
+      </void>
+      <void property="descripcion">
+       <string>Cuentan</string>
+      </void>
+      <void property="id">
+       <string>ET2</string>
+      </void>
+      <void property="involucrados">
+       <object class="java.util.ArrayList">
+        <void method="add">
+         <object class="Domain.Modelo.Persona" id="Persona2">
+          <void property="direccion">
+           <string>Uniquindio</string>
+          </void>
+          <void property="edad">
+           <string>20</string>
+          </void>
+          <void property="email">
+           <string>Cristian@gmail.com</string>
+          </void>
+          <void property="estadoCivil">
+           <string>Casado</string>
+          </void>
+          <void property="fechaNacimiento">
+           <string>2002</string>
+          </void>
+          <void property="genero">
+           <string>M</string>
+          </void>
+          <void property="id">
+           <string>P2</string>
+          </void>
+          <void property="nombre">
+           <string>Cristian</string>
+          </void>
+          <void property="telefono">
+           <string>665642</string>
+          </void>
+         </object>
+        </void>
+       </object>
+      </void>
+     </object>
+    </void>
+   </void>
+  </void>
+  <void id="FactoryPersona0" property="factoryPersona">
+   <void property="listaPersonas">
+    <void method="add">
+     <object idref="Persona0"/>
+    </void>
+    <void method="add">
+     <object idref="Persona2"/>
+    </void>
+    <void method="add">
+     <object idref="Persona1"/>
+    </void>
+    <void method="add">
+     <object class="Domain.Modelo.Persona" id="Persona3">
+      <void property="direccion">
+       <string>Uniquindio</string>
+      </void>
+      <void property="edad">
+       <string>20</string>
+      </void>
+      <void property="email">
+       <string>William@gmail.com</string>
+      </void>
+      <void property="estadoCivil">
+       <string>Casado</string>
+      </void>
+      <void property="fechaNacimiento">
+       <string>2002</string>
+      </void>
+      <void property="genero">
+       <string>M</string>
+      </void>
+      <void property="id">
+       <string>P4</string>
+      </void>
+      <void property="nombre">
+       <string>William</string>
+      </void>
+      <void property="telefono">
+       <string>242442</string>
+      </void>
+     </object>
+    </void>
+   </void>
+   <void property="listaRoles">
+    <void method="add">
+     <object class="Domain.Modelo.Rol">
+      <void property="descripcion">
+       <string>Este es el primer rol</string>
+      </void>
+      <void property="id">
+       <string>R001</string>
+      </void>
+      <void property="nivelAutodidad">
+       <string>00</string>
+      </void>
+      <void property="nombre">
+       <string>Primer rol</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="Domain.Modelo.Rol">
+      <void property="descripcion">
+       <string>Este es el segundo rol</string>
+      </void>
+      <void property="id">
+       <string>R002</string>
+      </void>
+      <void property="nivelAutodidad">
+       <string>01</string>
+      </void>
+      <void property="nombre">
+       <string>Segundo rol</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="Domain.Modelo.Rol">
+      <void property="descripcion">
+       <string>Este es el tercer rol</string>
+      </void>
+      <void property="id">
+       <string>R003</string>
+      </void>
+      <void property="nivelAutodidad">
+       <string>03</string>
+      </void>
+      <void property="nombre">
+       <string>Tercer rol Mod</string>
+      </void>
+     </object>
+    </void>
+   </void>
+  </void>
+  <void id="FactoryProyecto0" property="factoryProyecto">
+   <void property="listaProyectos">
+    <void method="add">
+     <object class="Domain.Modelo.Proyecto">
+      <void property="descripcion">
+       <string>Este es el primer proyecto</string>
+      </void>
+      <void property="equipoAsignado">
+       <object idref="EquipoTrabajo0"/>
+      </void>
+      <void property="fechaInicio">
+       <string>2023-30-04</string>
+      </void>
+      <void property="fechaLimite">
+       <string>2024-30-04</string>
+      </void>
+      <void property="id">
+       <string>PY1</string>
+      </void>
+      <void property="nombre">
+       <string>Primer proyecto</string>
+      </void>
+      <void property="porcentajeAvance">
+       <string>0</string>
+      </void>
+      <void property="supervisor">
+       <object idref="Persona3"/>
+      </void>
+      <void property="tareas">
+       <object class="java.util.ArrayList">
+        <void method="add">
+         <object class="Domain.Modelo.Tarea" id="Tarea0">
+          <void property="descripcion">
+           <string>Esta es la primera tarea</string>
+          </void>
+          <void property="estado">
+           <string>Incompleta</string>
+          </void>
+          <void property="fechaFin">
+           <string>2023-12-10</string>
+          </void>
+          <void property="fechaInicio">
+           <string>2023-01-05</string>
+          </void>
+          <void property="id">
+           <string>PY1T01</string>
+          </void>
+          <void property="nombre">
+           <string>Tarea Primera</string>
+          </void>
+          <void property="porcentajeAvance">
+           <string>0</string>
+          </void>
+          <void property="responsable">
+           <object idref="Persona0"/>
+          </void>
+         </object>
+        </void>
+        <void method="add">
+         <object class="Domain.Modelo.Tarea" id="Tarea1">
+          <void property="descripcion">
+           <string>Esta es la segunda tarea</string>
+          </void>
+          <void property="estado">
+           <string>Incompleta</string>
+          </void>
+          <void property="fechaFin">
+           <string>2023-12-10</string>
+          </void>
+          <void property="fechaInicio">
+           <string>2023-01-05</string>
+          </void>
+          <void property="id">
+           <string>PY1T02</string>
+          </void>
+          <void property="nombre">
+           <string>Tarea Segunda</string>
+          </void>
+          <void property="porcentajeAvance">
+           <string>0</string>
+          </void>
+          <void property="responsable">
+           <object idref="Persona0"/>
+          </void>
+         </object>
+        </void>
+        <void method="add">
+         <object class="Domain.Modelo.Tarea" id="Tarea2">
+          <void property="descripcion">
+           <string>Esta es la tercera tarea</string>
+          </void>
+          <void property="estado">
+           <string>Incompleta</string>
+          </void>
+          <void property="fechaFin">
+           <string>2023-12-10</string>
+          </void>
+          <void property="fechaInicio">
+           <string>2023-01-05</string>
+          </void>
+          <void property="id">
+           <string>PY1T03</string>
+          </void>
+          <void property="nombre">
+           <string>Tarea Tercera</string>
+          </void>
+          <void property="porcentajeAvance">
+           <string>0</string>
+          </void>
+          <void property="responsable">
+           <object idref="Persona0"/>
+          </void>
+         </object>
+        </void>
+       </object>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="Domain.Modelo.Proyecto">
+      <void property="descripcion">
+       <string>Este es el segundo proyecto</string>
+      </void>
+      <void property="equipoAsignado">
+       <object idref="EquipoTrabajo1"/>
+      </void>
+      <void property="fechaInicio">
+       <string>2023-30-04</string>
+      </void>
+      <void property="fechaLimite">
+       <string>2024-30-04</string>
+      </void>
+      <void property="id">
+       <string>PY2</string>
+      </void>
+      <void property="nombre">
+       <string>Segundo proyecto</string>
+      </void>
+      <void property="porcentajeAvance">
+       <string>0</string>
+      </void>
+      <void property="supervisor">
+       <object idref="Persona3"/>
+      </void>
+      <void property="tareas">
+       <object class="java.util.ArrayList">
+        <void method="add">
+         <object class="Domain.Modelo.Tarea" id="Tarea3">
+          <void property="descripcion">
+           <string>Esta es la primera tarea</string>
+          </void>
+          <void property="estado">
+           <string>Incompleta</string>
+          </void>
+          <void property="fechaFin">
+           <string>2023-12-04</string>
+          </void>
+          <void property="fechaInicio">
+           <string>2023-01-03</string>
+          </void>
+          <void property="id">
+           <string>PY2T01</string>
+          </void>
+          <void property="nombre">
+           <string>Tarea Primera</string>
+          </void>
+          <void property="porcentajeAvance">
+           <string>0</string>
+          </void>
+          <void property="responsable">
+           <object idref="Persona0"/>
+          </void>
+         </object>
+        </void>
+        <void method="add">
+         <object class="Domain.Modelo.Tarea" id="Tarea4">
+          <void property="descripcion">
+           <string>Esta es la segunda tarea</string>
+          </void>
+          <void property="estado">
+           <string>Incompleta</string>
+          </void>
+          <void property="fechaFin">
+           <string>2023-12-04</string>
+          </void>
+          <void property="fechaInicio">
+           <string>2023-01-03</string>
+          </void>
+          <void property="id">
+           <string>PY2T02</string>
+          </void>
+          <void property="nombre">
+           <string>Tarea Segunda</string>
+          </void>
+          <void property="porcentajeAvance">
+           <string>0</string>
+          </void>
+          <void property="responsable">
+           <object idref="Persona0"/>
+          </void>
+         </object>
+        </void>
+        <void method="add">
+         <object class="Domain.Modelo.Tarea" id="Tarea5">
+          <void property="descripcion">
+           <string>Esta es la tercera tarea</string>
+          </void>
+          <void property="estado">
+           <string>Incompleta</string>
+          </void>
+          <void property="fechaFin">
+           <string>2023-12-04</string>
+          </void>
+          <void property="fechaInicio">
+           <string>2023-01-03</string>
+          </void>
+          <void property="id">
+           <string>PY2T03</string>
+          </void>
+          <void property="nombre">
+           <string>Tarea Tercera</string>
+          </void>
+          <void property="porcentajeAvance">
+           <string>0</string>
+          </void>
+          <void property="responsable">
+           <object idref="Persona0"/>
+          </void>
+         </object>
+        </void>
+       </object>
+      </void>
+     </object>
+    </void>
+   </void>
+  </void>
+  <void id="FactoryTarea0" property="factoryTarea">
+   <void property="listaTareas">
+    <void method="add">
+     <object idref="Tarea3"/>
+    </void>
+    <void method="add">
+     <object idref="Tarea4"/>
+    </void>
+    <void method="add">
+     <object idref="Tarea5"/>
+    </void>
+    <void method="add">
+     <object idref="Tarea0"/>
+    </void>
+    <void method="add">
+     <object idref="Tarea1"/>
+    </void>
+    <void method="add">
+     <object idref="Tarea2"/>
+    </void>
+   </void>
+  </void>
+ </object>
+</java>

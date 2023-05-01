@@ -1,5 +1,6 @@
 package Domain.Fabrica;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import Domain.Modelo.EquipoTrabajo;
@@ -7,9 +8,16 @@ import Domain.Modelo.Persona;
 import UI.Controller.CRUDEquipoTrabajoController;
 import javafx.collections.FXCollections;
 
-public class FactoryEquipoTrabajo {
+public class FactoryEquipoTrabajo implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private List<EquipoTrabajo> listaEquipoTrabajo = new ArrayList<>();
+	
+	public FactoryEquipoTrabajo() {
+	}
 
 	public void agregarEquipo(final CRUDEquipoTrabajoController formulario, List<Persona> personas) {
 		boolean sePuedeAgregar = true;
@@ -22,7 +30,7 @@ public class FactoryEquipoTrabajo {
 			EquipoTrabajo nuevoEquipoTrabajo = new EquipoTrabajo();
 			nuevoEquipoTrabajo.setId(formulario.getLbIdGrupo().getText());
 			nuevoEquipoTrabajo.setCargo(formulario.getLbCargo().getText());
-			nuevoEquipoTrabajo.setDescripcion(formulario.getLbIdGrupo().getText());
+			nuevoEquipoTrabajo.setDescripcion(formulario.getLbDescripcion().getText());
 			List<Persona> integrantes = new ArrayList<>();
 			nuevoEquipoTrabajo.setInvolucrados(integrantes);
 			nuevoEquipoTrabajo.setNumeroIntegrantes(integrantes.size());
@@ -110,4 +118,13 @@ public class FactoryEquipoTrabajo {
 	public List<EquipoTrabajo> getListaEquipoTrabajo() {
 		return listaEquipoTrabajo;
 	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	public void setListaEquipoTrabajo(List<EquipoTrabajo> listaEquipoTrabajo) {
+		this.listaEquipoTrabajo = listaEquipoTrabajo;
+	}
+	
 }

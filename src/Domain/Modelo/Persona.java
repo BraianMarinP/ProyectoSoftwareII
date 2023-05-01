@@ -1,17 +1,23 @@
 package Domain.Modelo;
 
-public class Persona {
+import java.io.Serializable;
 
-	String id;
-	String nombre;
-	String edad;
-	String telefono;
-	String fechaNacimiento;
-	String genero;
-	String direccion;
-	String estadoCivil;
-	String email;
-	Rol rol;
+public class Persona implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private String id;
+	private String nombre;
+	private String edad;
+	private String telefono;
+	private String fechaNacimiento;
+	private String genero;
+	private String direccion;
+	private String estadoCivil;
+	private String email;
+	private Rol rol;
 
 	public Persona() {
 	}

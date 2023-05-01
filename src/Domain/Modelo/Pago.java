@@ -1,15 +1,21 @@
 package Domain.Modelo;
 
-public class Pago {
-	String id;
-	Double monto;
-	String fechaCreacion;
-	String referencia;
-	String metodoPago;
-	String comprobante;
-	String estado;
-	Persona cliente;
-	Proyecto proyecto;
+import java.io.Serializable;
+
+public class Pago implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private String id;
+	private Double monto;
+	private String fechaCreacion;
+	private String referencia;
+	private String metodoPago;
+	private String comprobante;
+	private String estado;
+	private Persona cliente;
+	private Proyecto proyecto;
 
 	public Pago() {
 	}
