@@ -128,6 +128,7 @@ public class CRUDEquipoTrabajoController implements Initializable {
 	void eliminarEquipo(ActionEvent event) {
 		domain.eliminarEquipo(this);
 		domain.cargarPersonalDisponible(this);
+		domain.cargarEquipos(this);
 		salvarDomain();
 	}
 

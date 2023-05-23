@@ -16,6 +16,10 @@ public class Main extends Application {
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
         primaryStage.show();
+        /*Correo correo = new Correo();
+        correo.crearEnviarCorreo("camuproyecto@gmail.com", 
+        		"Primer correo", 
+        		"Este es un correo de prueba de la aplicación de camu. Ignorar");*/
     }
 
     public static void main(String[] args) {

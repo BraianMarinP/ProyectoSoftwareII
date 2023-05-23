@@ -119,7 +119,7 @@ public class Domain implements Serializable {
 	}
 
 	public void eliminarProyecto(final CRUDProyectoController formulario) {
-		factoryProyecto.eliminarProyecto(formulario);
+		factoryProyecto.eliminarProyecto(formulario, factoryEquipoTrabajo.getListaEquipoTrabajo());
 		formulario.actualizarVista();
 	}
 
@@ -148,7 +148,7 @@ public class Domain implements Serializable {
 	}
 
 	public void eliminarTarea(final CRUDTareaController formulario) {
-		factoryTarea.eliminarTarea(formulario,  factoryProyecto.getListaProyectos());
+		factoryTarea.eliminarTarea(formulario, factoryProyecto.getListaProyectos(), factoryPersona.getListaPersonas());
 		formulario.actualizarVista();
 	}
 

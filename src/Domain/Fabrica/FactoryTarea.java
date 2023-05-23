@@ -8,6 +8,7 @@ import Domain.Modelo.Proyecto;
 import Domain.Modelo.Tarea;
 import UI.Controller.CRUDTareaController;
 import UI.Controller.SeguimientoController;
+import application.Correo;
 import javafx.collections.FXCollections;
 import javafx.scene.input.MouseEvent;
 
@@ -47,6 +48,18 @@ public class FactoryTarea implements Serializable {
 						if (proyecto.getId().equalsIgnoreCase(proyectoSeleccionado.getId())) {
 							proyecto.getTareas().add(nuevaTarea);
 							listaTareas.add(nuevaTarea);
+							
+							/*
+							 * =================CORREO=============================
+							 * Notificamos que se ha agregado una nueva tarea al responsable
+							 */
+							Correo correo = new Correo();
+							correo.crearEnviarCorreo(persona.getEmail(), 
+									"Asignacion de tarea.", 
+									persona.getNombre() + " se ha creado la tarea "
+											+ nuevaTarea.getNombre() + " revisa actualizaciones de tu tarea."
+											+ "\n\nNo responder este es un correo de prueba de aplicacion");
+							
 							formulario.getTablaTareas()
 									.setItems(FXCollections.observableArrayList(proyecto.getTareas()));
 							break;
@@ -58,7 +71,7 @@ public class FactoryTarea implements Serializable {
 		}
 	}
 
-	public void eliminarTarea(final CRUDTareaController formulario, List<Proyecto> proyectos) {
+	public void eliminarTarea(final CRUDTareaController formulario, List<Proyecto> proyectos, List<Persona> trabajadores) {
 		Tarea tareaEliminar = formulario.getTablaTareas().getSelectionModel().getSelectedItem();
 		boolean tareaProyectoEliminada = false;
 		for (Tarea tarea : listaTareas) {
@@ -67,6 +80,22 @@ public class FactoryTarea implements Serializable {
 				for (Proyecto proyecto : proyectos) {
 					for (Tarea tareaProyecto : proyecto.getTareas()) {
 						if (tareaProyecto.getId().equalsIgnoreCase(tareaEliminar.getId())) {
+							for (Persona persona : trabajadores) {
+								if(persona.getId().equalsIgnoreCase(tareaProyecto.getResponsable().getId())) {
+									/*
+									 * =================CORREO=============================
+									 * Notificamos que se ha eliminado una tarea al responsable
+									 * de la tarea
+									 */
+									Correo correo = new Correo();
+									correo.crearEnviarCorreo(persona.getEmail(), 
+											"Asignacion de tarea.", 
+											persona.getNombre() + " se ha eliminado la tarea "
+													+ tareaProyecto.getNombre() + " esar pendiente a actualizaciones."
+													+ "\n\nNo responder este es un correo de prueba de aplicacion");
+								}
+							}
+							
 							proyecto.getTareas().remove(tareaProyecto);
 							tareaProyectoEliminada = true;
 							formulario.getTablaTareas()
@@ -97,6 +126,16 @@ public class FactoryTarea implements Serializable {
 				for (Persona persona : trabajadores) {
 					if (persona.getId().equalsIgnoreCase(formulario.getLbIdResponsable().getText())) {
 						tarea.setResponsable(persona);
+						/*
+						 * =================CORREO=============================
+						 * Notificamos que se ha modificado la tarea al responsable
+						 */
+						Correo correo = new Correo();
+						correo.crearEnviarCorreo(persona.getEmail(), 
+								"Modificacion de tarea.", 
+								persona.getNombre() + " se ha modificado la tarea "
+										+ tarea.getNombre() + " revisa actualizaciones de tu tarea."
+										+ "\n\nNo responder este es un correo de prueba de aplicacion");
 						break;
 					}
 				}

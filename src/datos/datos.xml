@@ -9,7 +9,7 @@
        <string>Compras</string>
       </void>
       <void property="descripcion">
-       <string>Obtienen la materia prima</string>
+       <string>Obtienen la materia prima necesaria</string>
       </void>
       <void property="id">
        <string>ET1</string>
@@ -126,6 +126,37 @@
           </void>
          </object>
         </void>
+        <void method="add">
+         <object class="Domain.Modelo.Persona" id="Persona3">
+          <void property="direccion">
+           <string>Uniquindio</string>
+          </void>
+          <void property="edad">
+           <string>21</string>
+          </void>
+          <void property="email">
+           <string>braianmarinp1@gmail.com</string>
+          </void>
+          <void property="estadoCivil">
+           <string>Soltero</string>
+          </void>
+          <void property="fechaNacimiento">
+           <string>20/20/2020</string>
+          </void>
+          <void property="genero">
+           <string>Hombre</string>
+          </void>
+          <void property="id">
+           <string>P5</string>
+          </void>
+          <void property="nombre">
+           <string>Braian Marin Puerta</string>
+          </void>
+          <void property="telefono">
+           <string>3513513</string>
+          </void>
+         </object>
+        </void>
        </object>
       </void>
      </object>
@@ -144,7 +175,7 @@
      <object idref="Persona1"/>
     </void>
     <void method="add">
-     <object class="Domain.Modelo.Persona" id="Persona3">
+     <object class="Domain.Modelo.Persona" id="Persona4">
       <void property="direccion">
        <string>Uniquindio</string>
       </void>
@@ -173,6 +204,9 @@
        <string>242442</string>
       </void>
      </object>
+    </void>
+    <void method="add">
+     <object idref="Persona3"/>
     </void>
    </void>
    <void property="listaRoles">
@@ -231,7 +265,7 @@
     <void method="add">
      <object class="Domain.Modelo.Proyecto">
       <void property="descripcion">
-       <string>Este es el primer proyecto</string>
+       <string>Este es el primer (1) proyecto</string>
       </void>
       <void property="equipoAsignado">
        <object idref="EquipoTrabajo0"/>
@@ -252,7 +286,7 @@
        <string>0</string>
       </void>
       <void property="supervisor">
-       <object idref="Persona3"/>
+       <object idref="Persona4"/>
       </void>
       <void property="tareas">
        <object class="java.util.ArrayList">
@@ -347,7 +381,7 @@
     <void method="add">
      <object class="Domain.Modelo.Proyecto">
       <void property="descripcion">
-       <string>Este es el segundo proyecto</string>
+       <string>Este es el segundo (2) proyecto</string>
       </void>
       <void property="equipoAsignado">
        <object idref="EquipoTrabajo1"/>
@@ -368,7 +402,7 @@
        <string>0</string>
       </void>
       <void property="supervisor">
-       <object idref="Persona3"/>
+       <object idref="Persona4"/>
       </void>
       <void property="tareas">
        <object class="java.util.ArrayList">
@@ -446,13 +480,13 @@
            <string>PY2T03</string>
           </void>
           <void property="nombre">
-           <string>Tarea Tercera</string>
+           <string>Tarea tercera</string>
           </void>
           <void property="porcentajeAvance">
-           <string>0</string>
+           <string>10</string>
           </void>
           <void property="responsable">
-           <object idref="Persona0"/>
+           <object idref="Persona3"/>
           </void>
          </object>
         </void>

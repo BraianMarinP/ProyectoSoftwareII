@@ -9,6 +9,7 @@ import Domain.Modelo.Persona;
 import Domain.Modelo.Rol;
 import UI.Controller.CRUDEquipoTrabajoController;
 import UI.Controller.CRUDPersonaController;
+import application.Correo;
 import javafx.collections.FXCollections;
 
 public class FactoryPersona implements Serializable {
@@ -54,6 +55,15 @@ public class FactoryPersona implements Serializable {
 			nuevaPersona.setRol(null);
 			nuevaPersona.setTelefono(formulario.getLbTelefono().getText());
 			listaPersonas.add(nuevaPersona);
+			/*
+			 * =================CORREO=============================
+			 * Notificamos que se ha registrado en la base de datos
+			 */
+			Correo correo = new Correo();
+			correo.crearEnviarCorreo(nuevaPersona.getEmail(), 
+					"Registro en la empresa CAMU.", 
+					nuevaPersona.getNombre() + " has sido agregado a la base de datos de CAMU"
+							+ "\n\nNo responder este es un correo de prueba de aplicacion");
 			formulario.getTablaPersonas().setItems(FXCollections.observableList(listaPersonas));
 		}
 	}
@@ -70,6 +80,15 @@ public class FactoryPersona implements Serializable {
 				persona.setNombre(formulario.getLbNombrePersona().getText());
 				persona.setRol(null);
 				persona.setTelefono(formulario.getLbTelefono().getText());
+				/*
+				 * =================CORREO=============================
+				 * Notificamos que se han actualizado los datos de esa persona en la base de datos
+				 */
+				Correo correo = new Correo();
+				correo.crearEnviarCorreo(persona.getEmail(), 
+						"Actualización de datos CAMU.", 
+						persona.getNombre() + " tus datos de CAMU han sido actualizados"
+								+ "\n\nNo responder este es un correo de prueba de aplicacion");
 				formulario.getTablaPersonas().setItems(FXCollections.observableList(listaPersonas));
 				break;
 			}
@@ -83,6 +102,15 @@ public class FactoryPersona implements Serializable {
 			for (Persona persona : listaPersonas) {
 				if (persona.getId().equalsIgnoreCase(personaEliminar.getId())) {
 					listaPersonas.remove(persona);
+					/*
+					 * =================CORREO=============================
+					 * Notificamos que se ha eliminado a esa persona en la base de datos
+					 */
+					Correo correo = new Correo();
+					correo.crearEnviarCorreo(persona.getEmail(), 
+							"Eliminacion de datos CAMU.", 
+							persona.getNombre() + " has sido eliminado de la base de datos de CAMU"
+									+ "\n\nNo responder este es un correo de prueba de aplicacion");
 					for (EquipoTrabajo equipo : equipos) {
 						for (Persona integrante : equipo.getInvolucrados()) {
 							if(integrante.getId().equalsIgnoreCase(personaEliminar.getId())) {

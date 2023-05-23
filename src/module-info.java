@@ -13,4 +13,10 @@ module ProjectoSoftwareII_CAMU {
 	opens UI.Controller;
 	opens Domain.Modelo;
 	opens Domain.Fabrica;
+	
+	requires javax.activation;
+	requires javax.ejb;
+	requires javax.faces.api;
+	requires javax.inject;
+	requires mail;
 }

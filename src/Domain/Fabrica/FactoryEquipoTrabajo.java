@@ -6,6 +6,7 @@ import java.util.List;
 import Domain.Modelo.EquipoTrabajo;
 import Domain.Modelo.Persona;
 import UI.Controller.CRUDEquipoTrabajoController;
+import application.Correo;
 import javafx.collections.FXCollections;
 
 public class FactoryEquipoTrabajo implements Serializable{
@@ -35,6 +36,7 @@ public class FactoryEquipoTrabajo implements Serializable{
 			nuevoEquipoTrabajo.setInvolucrados(integrantes);
 			nuevoEquipoTrabajo.setNumeroIntegrantes(integrantes.size());
 			listaEquipoTrabajo.add(nuevoEquipoTrabajo);
+			
 			formulario.getTablaEquipos().setItems(FXCollections.observableArrayList(listaEquipoTrabajo));
 		}
 		
@@ -50,6 +52,16 @@ public class FactoryEquipoTrabajo implements Serializable{
 						for (Persona persona : personas) {
 							if(persona.getId().equalsIgnoreCase(personaSeleccionada.getId())) {
 								equipo.getInvolucrados().add(persona);
+								/*
+								 * =================CORREO=============================
+								 * Notificamos que esa persona se agregó como integrante  a un grupo
+								 */
+								Correo correo = new Correo();
+								correo.crearEnviarCorreo(persona.getEmail(), 
+										"Asignacion de grupo de trabajo.", 
+										persona.getNombre() + " Ahora formas parte del equipo"
+												+ " de trabajo " + equipo.getId()
+												+ "\n\nNo responder este es un correo de prueba de aplicacion");
 								break;
 							}
 						}
@@ -67,6 +79,18 @@ public class FactoryEquipoTrabajo implements Serializable{
 				if(equipoModificar.getId().equalsIgnoreCase(equipoSeleccionado.getId())) {
 					equipoModificar.setDescripcion(formulario.getLbDescripcion().getText());
 					equipoModificar.setCargo(formulario.getLbCargo().getText());
+					for (Persona persona : equipoModificar.getInvolucrados()) {
+						/*
+						 * =================CORREO=============================
+						 * Notificamos que se ha modificó el grupo a los integrantes
+						 */
+						Correo correo = new Correo();
+						correo.crearEnviarCorreo(persona.getEmail(), 
+								"Modificacion de tu grupo de trabajo.", 
+								persona.getNombre() + " se ha actualizado la información de tu equipo"
+										+ " de trabajo " + equipoModificar.getId()
+										+ "\n\nNo responder este es un correo de prueba de aplicacion");
+					}
 					break;
 				}
 			}
@@ -77,8 +101,22 @@ public class FactoryEquipoTrabajo implements Serializable{
 		EquipoTrabajo equipoSeleccionado = formulario.getTablaEquipos().getSelectionModel().getSelectedItem();
 		if(equipoSeleccionado != null) {
 			for (EquipoTrabajo equipoEliminar : listaEquipoTrabajo) {
-				listaEquipoTrabajo.remove(equipoEliminar);
-				break;
+				if(equipoSeleccionado.getId().equalsIgnoreCase(equipoEliminar.getId())) {
+					for (Persona persona : equipoEliminar.getInvolucrados()) {
+						/*
+						 * =================CORREO=============================
+						 * Notificamos que se eliminó el grupo completo a los antiguos integrantes
+						 */
+						Correo correo = new Correo();
+						correo.crearEnviarCorreo(persona.getEmail(), 
+								"Eliminacion grupo de trabajo.", 
+								persona.getNombre() + " se ha eliminado tu equipo"
+										+ " de trabajo " + equipoEliminar.getId()
+										+ "\n\nNo responder este es un correo de prueba de aplicacion");
+					}
+					listaEquipoTrabajo.remove(equipoEliminar);
+					break;
+				}
 			}
 		}
 	}
@@ -91,6 +129,16 @@ public class FactoryEquipoTrabajo implements Serializable{
 				if(equipoModificar.getId().equalsIgnoreCase(equipoSeleccionado.getId())) {
 					for (Persona integrante : equipoModificar.getInvolucrados()) {
 						if(integrante.getId().equalsIgnoreCase(integranteSeleccionado.getId())) {
+							/*
+							 * =================CORREO=============================
+							 * Notificamos que se elimina el integrante del grupo
+							 */
+							Correo correo = new Correo();
+							correo.crearEnviarCorreo(integrante.getEmail(), 
+									"Eliminacion integrante de equipo.", 
+									integrante.getNombre() + " has sido desasignado del equipo"
+											+ " de trabajo " + equipoModificar.getId()
+											+ "\n\nNo responder este es un correo de prueba de aplicacion");
 							equipoModificar.getInvolucrados().remove(integrante);
 							break;
 						}
